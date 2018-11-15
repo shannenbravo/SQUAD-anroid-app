@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="project1.mobile.cs.fsu.edu.squad.MainActivity"
+    android:background="@drawable/login_back"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:background="@drawable/friendslogo"
+        android:typeface="serif"
+        android:layout_marginLeft="70dp"
+        android:gravity="center"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="120dp"
+        android:src="@drawable/blacksquad"
+        />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#E525A1"
+        android:typeface="serif"
+        android:hint="Email"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:textStyle="bold"
+        android:textColorHint="#E525A1"
+        android:backgroundTint="#E525A1"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"/>
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#E525A1"
+        android:typeface="serif"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:textStyle="bold"
+        android:textColorHint="#E525A1"
+        android:backgroundTint="#E525A1"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/loginButton"
+        android:background="#E525A1"
+        android:textStyle="bold"
+        android:text="Login"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"
+        android:typeface="serif"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Not a member?"
+        android:textColor="#E525A1"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Sign up"
+        android:textColor="#E525A1"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>

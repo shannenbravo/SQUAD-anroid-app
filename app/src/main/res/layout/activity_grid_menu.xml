@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context="project1.mobile.cs.fsu.edu.squad.GridMenu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="240dp"
+            android:background="@drawable/dashboardpic"
+            android:typeface="serif"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@color/colorGrapefruit"
+                >
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_add_location"
+                    android:tint="#ffffff"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorDarkGrapefruit"
+                    android:text="Check In"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@color/colorMintGreen">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_group"
+                    android:tint="#ffffff"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorDarkMintGreen"
+                    android:text="View Squad"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@color/colorBlueJeans"
+                >
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_group_add"
+                    android:tint="#ffffff"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorDarkBlueJeans"
+                    android:text="Grow My Squad"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@color/colorLavender">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_my_location"
+                    android:tint="#ffffff"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colordARKLavender"
+                    android:text="Find My Squad"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    
+
+
+</LinearLayout>

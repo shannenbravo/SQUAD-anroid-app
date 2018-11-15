@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorGrapefruit">#ED5565</color>
+    <color name="colorMintGreen">#98ff98</color>
+    <color name="colorDarkGrapefruit">#DA4453</color>
+    <color name="colorDarkMintGreen">#4cff4c</color>
+    <color name="colorBlueJeans">#509CEC</color>
+    <color name="colorDarkBlueJeans">#4A89DC</color>
+    <color name="colorLavender">#AC92EC</color>
+    <color name="colordARKLavender">#967ADC</color>
+</resources>
