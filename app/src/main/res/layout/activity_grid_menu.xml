@@ -31,7 +31,6 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:background="@color/colorGrapefruit"
-                android:id="@+id/myLocation"
                 >
                 <ImageView
                     android:layout_width="70dp"
