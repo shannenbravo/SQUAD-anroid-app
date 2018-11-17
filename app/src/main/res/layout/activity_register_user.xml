@@ -63,6 +63,7 @@
             android:src="@drawable/ic_group"
             android:tint="#ffffff"/>
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DADADA"
@@ -87,6 +88,7 @@
             android:src="@drawable/ic_myemail"
             android:tint="#ffffff"/>
         <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DADADA"
@@ -110,6 +112,7 @@
             android:src="@drawable/ic_filled_lock"
             android:tint="#ffffff"/>
         <EditText
+            android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DADADA"
@@ -134,6 +137,7 @@
             android:src="@drawable/ic_filled_lock"
             android:tint="#ffffff"/>
         <EditText
+            android:id="@+id/cPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DADADA"
@@ -148,6 +152,7 @@
         android:layout_marginLeft="50dp"
         android:typeface="serif"
         android:textColor="#ffff"
+        android:id="@+id/registerButt"
         android:textSize="22sp"
         android:textStyle="bold"
         android:text="Login"
