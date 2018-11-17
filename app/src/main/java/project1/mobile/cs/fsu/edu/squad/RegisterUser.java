@@ -16,15 +16,15 @@ public class RegisterUser extends AppCompatActivity {
     EditText password;
     EditText cPassword;
     Button reggiNow;
-    DatabaseReference ref;
+//    DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        ref = database.getReference("Squad");
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        ref = database.getReference("Users");
 //        databaseUsers = FirebaseDatabase.getInstance().getReference("users");
         reggiNow= (Button)findViewById(R.id.registerButt);
         name = (EditText)findViewById(R.id.name);
@@ -42,11 +42,13 @@ public class RegisterUser extends AppCompatActivity {
 
     public void sendData(){
         //TODO checks for the input
-        DatabaseReference usersRef = ref.child("users");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("Users");
+//        DatabaseReference usersRef = ref.child("users");
         String uemail = email.getText().toString().trim();
         String uName = name.getText().toString().trim();
         String uPassword = password.getText().toString().trim();
-        usersRef.child(uemail).setValue(new SquadUser(uemail,uemail,uPassword));
+        ref.child(uemail).setValue(new SquadUser(uName,uemail,uPassword,0, 0 ));
 
     }
 }

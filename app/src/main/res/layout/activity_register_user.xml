@@ -68,8 +68,7 @@
             android:layout_height="match_parent"
             android:background="#DADADA"
             android:layout_marginLeft="5dp"
-
-            android:hint="Name"/>
+            android:hint="User Name"/>
     </LinearLayout>
 
     <LinearLayout

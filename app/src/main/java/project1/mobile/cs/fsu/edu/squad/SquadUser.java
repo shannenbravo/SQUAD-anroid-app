@@ -8,12 +8,12 @@ public class SquadUser {
     private float uLat;
     private float uLonge;
 
-    SquadUser(String n, String em, String p) {
+    SquadUser(String n, String em, String p, float lon, float lat) {
         setName(n);
         setEmail(em);
         setuPassword(p);
-        uLat = 0;
-        uLonge = 0;
+        uLat = lon;
+        uLonge = lat;
 
     }
 
@@ -60,5 +60,21 @@ public class SquadUser {
 
     public String getuPassword() {
         return uPassword;
+    }
+
+    public void setuLat(float uLat) {
+        this.uLat = uLat;
+    }
+
+    public void setuLonge(float uLonge) {
+        this.uLonge = uLonge;
+    }
+
+    public float getuLat() {
+        return uLat;
+    }
+
+    public float getuLonge() {
+        return uLonge;
     }
 }
