@@ -66,19 +66,22 @@
         android:textColor="#ffff"
         android:typeface="serif"
         />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Not a member?"
-        android:textColor="@color/colorGrapefruit"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Not a member?"
+        android:textColor="@color/colorGrapefruit" />
+
+    <Button
         android:layout_width="100dp"
+        android:id="@+id/reggi"
         android:layout_height="50dp"
         android:text="Sign up"
-        android:textColor="@color/colorGrapefruit"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorGrapefruit"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"/>
 
