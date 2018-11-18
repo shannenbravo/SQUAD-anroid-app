@@ -1,5 +1,6 @@
 package project1.mobile.cs.fsu.edu.squad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ public class RegisterUser extends AppCompatActivity {
     EditText password;
     EditText cPassword;
     Button reggiNow;
+    Intent intent;
 //    DatabaseReference ref;
 
     @Override
@@ -44,11 +46,14 @@ public class RegisterUser extends AppCompatActivity {
         //TODO checks for the input
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
-//        DatabaseReference usersRef = ref.child("users");
+
+//        DatabaseReference usersRef = ref.child("squadUsers");
         String uemail = email.getText().toString().trim();
         String uName = name.getText().toString().trim();
         String uPassword = password.getText().toString().trim();
         ref.child(uemail).setValue(new SquadUser(uName,uemail,uPassword,0, 0 ));
+        intent = new Intent(RegisterUser.this, GridMenu.class);
+        startActivity(intent);
 
     }
 }

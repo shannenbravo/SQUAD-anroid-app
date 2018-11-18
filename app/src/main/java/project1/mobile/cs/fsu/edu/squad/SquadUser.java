@@ -40,7 +40,6 @@ public class SquadUser {
     }
 
     public void setEmail(String s) {
-
         email = s;
 
     }
