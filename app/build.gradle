@@ -32,6 +32,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:11.0.4'
     implementation 'com.google.firebase:firebase-core:11.0.4'
     implementation 'com.google.firebase:firebase-database:11.0.4'
+    implementation 'com.google.firebase:firebase-auth:11.0.4'
     testImplementation 'junit:junit:4.12'
 
+
 }
+apply plugin: 'com.google.gms.google-services'
