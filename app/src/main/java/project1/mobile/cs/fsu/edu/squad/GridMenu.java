@@ -10,16 +10,26 @@ public class GridMenu extends AppCompatActivity {
 //
     private Intent intent;
     private LinearLayout myLocation;
+    private LinearLayout otherLoacation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_menu);
-        intent = new Intent(this,MapsActivity.class);
         myLocation = (LinearLayout) findViewById(R.id.myLocation);
+        otherLoacation = (LinearLayout)findViewById(R.id.findFriends);
         myLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent = new Intent(GridMenu.this,MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        otherLoacation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(GridMenu.this,MapsActivity2.class);
                 startActivity(intent);
             }
         });

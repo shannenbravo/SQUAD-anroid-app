@@ -10,11 +10,11 @@
 
 
     <ImageView
-        android:layout_width="240dp"
-        android:layout_height="240dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:background="@drawable/friendslogo"
         android:typeface="serif"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="110dp"
         android:gravity="center"/>
 
     <ImageView
@@ -23,19 +23,20 @@
         android:layout_marginTop="0dp"
         android:layout_marginLeft="120dp"
         android:src="@drawable/blacksquad"
+        android:tint="@color/colorGrapefruit"
         />
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:textColor="#E525A1"
+        android:textColor="@color/colorGrapefruit"
         android:typeface="serif"
         android:hint="Email"
         android:drawableLeft="@drawable/ic_action_email"
         android:textStyle="bold"
-        android:textColorHint="#E525A1"
-        android:backgroundTint="#E525A1"
+        android:textColorHint="@color/colorGrapefruit"
+        android:backgroundTint="@color/colorGrapefruit"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"/>
 
@@ -43,13 +44,13 @@
         android:id="@+id/editPassword"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:textColor="#E525A1"
+        android:textColor="@color/colorGrapefruit"
         android:typeface="serif"
         android:hint="Password"
         android:drawableLeft="@drawable/ic_action_password"
         android:textStyle="bold"
-        android:textColorHint="#E525A1"
-        android:backgroundTint="#E525A1"
+        android:textColorHint="@color/colorGrapefruit"
+        android:backgroundTint="@color/colorGrapefruit"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"/>
 
@@ -57,27 +58,30 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:id="@+id/loginButton"
-        android:background="#E525A1"
+        android:background="@color/colorGrapefruit"
         android:textStyle="bold"
         android:text="Login"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="#000000"
+        android:textColor="#ffff"
         android:typeface="serif"
         />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Not a member?"
-        android:textColor="#E525A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Not a member?"
+        android:textColor="@color/colorGrapefruit" />
+
+    <Button
         android:layout_width="100dp"
+        android:id="@+id/reggi"
         android:layout_height="50dp"
         android:text="Sign up"
-        android:textColor="#E525A1"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorGrapefruit"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"/>
 

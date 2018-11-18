@@ -117,6 +117,7 @@
                 android:layout_height="170dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
+                android:id="@+id/findFriends"
                 android:background="@color/colorLavender">
                 <ImageView
                     android:layout_width="70dp"
