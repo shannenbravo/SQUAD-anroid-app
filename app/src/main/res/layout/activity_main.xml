@@ -25,61 +25,13 @@
         android:src="@drawable/blacksquad"
         />
 
-    <EditText
-        android:id="@+id/editEmail"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:textColor="#E525A1"
-        android:typeface="serif"
-        android:hint="Email"
-        android:drawableLeft="@drawable/ic_action_email"
-        android:textStyle="bold"
-        android:textColorHint="#E525A1"
-        android:backgroundTint="#E525A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="0dp"/>
 
-    <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:textColor="#E525A1"
-        android:typeface="serif"
-        android:hint="Password"
-        android:drawableLeft="@drawable/ic_action_password"
-        android:textStyle="bold"
-        android:textColorHint="#E525A1"
-        android:backgroundTint="#E525A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="0dp"/>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:id="@+id/loginButton"
-        android:background="#E525A1"
-        android:textStyle="bold"
-        android:text="Login"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#000000"
-        android:typeface="serif"
-        />
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Not a member?"
-        android:textColor="#E525A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Sign up"
-        android:textColor="#E525A1"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
 
 
 </LinearLayout>
