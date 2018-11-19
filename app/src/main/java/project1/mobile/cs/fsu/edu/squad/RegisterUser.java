@@ -20,6 +20,8 @@ public class RegisterUser extends AppCompatActivity {
     Intent intent;
 //    DatabaseReference ref;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

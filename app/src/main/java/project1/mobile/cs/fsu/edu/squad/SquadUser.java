@@ -17,6 +17,8 @@ public class SquadUser {
 
     }
 
+    SquadUser(){}
+
 
     public void setName(String s) {
 
