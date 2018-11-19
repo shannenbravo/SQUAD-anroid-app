@@ -1,5 +1,7 @@
 package project1.mobile.cs.fsu.edu.squad;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,24 +47,54 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 email = mEmail.getText().toString();
                 password = mPassword.getText().toString();
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser currentUser = mAuth.getCurrentUser();
-                                    intent = new Intent(MainActivity.this, GridMenu.class);
-                                    startActivity(intent);
-                                } else {
-                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                    Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                if(email.matches("") || password.matches("")){
+                    showAlert("Incomplete form");
+
+                    if(email.matches(""))
+                        mEmail.setError("Incomplete");
+                    if (password.matches(""))
+                        mPassword.setError("Incomplete");
+                }else {
+
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d(TAG, "signInWithEmail:success");
+                                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                                        intent = new Intent(MainActivity.this, GridMenu.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+//                                    Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                        showAlert("Authentication failed");
+                                    }
                                 }
-                            }
-                        });
+                            });
+
+                }
+//                mAuth.signInWithEmailAndPassword(email, password)
+//                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()) {
+//                                    // Sign in success, update UI with the signed-in user's information
+//                                    Log.d(TAG, "signInWithEmail:success");
+//                                    FirebaseUser currentUser = mAuth.getCurrentUser();
+//                                    intent = new Intent(MainActivity.this, GridMenu.class);
+//                                    startActivity(intent);
+//                                } else {
+//                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+////                                    Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+//                                    showAlert("Authentication failed");
+//                                }
+//                            }
+//                        });
             }
         });
+
         reggi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,5 +102,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void showAlert(String errMessage){
+        AlertDialog.Builder formNotComplete = new AlertDialog.Builder(MainActivity.this);
+        formNotComplete.setMessage(errMessage).setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert = formNotComplete.create();
+        alert.setTitle("Alert!");
+        alert.show();
     }
 }

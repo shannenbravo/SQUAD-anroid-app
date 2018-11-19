@@ -1,5 +1,7 @@
 package project1.mobile.cs.fsu.edu.squad;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,15 +10,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 
@@ -32,19 +33,20 @@ public class RegisterUser extends AppCompatActivity {
     String uemail;
     String uName;
     String uPassword;
-    float lon;
-    float lat;
+    String cPassWord;
+    double lon;
+    double lat;
 
 
-    public float getRandomNumberLat(){
+    public double getRandomNumberLat(){
         Random r = new Random();
-        float randomLat = -80 + r.nextFloat() * (80 - (-80));
+        double randomLat = -80 + r.nextDouble() * (80 - (-80));
         return randomLat;
     }
 
-    public float getRandomNumberLon(){
+    public double getRandomNumberLon(){
         Random r = new Random();
-        float randomLon = -80 + r.nextFloat() * (80 - (-80));
+        double randomLon = -80 + r.nextDouble() * (80 - (-80));
         return randomLon;
     }
 
@@ -56,13 +58,44 @@ public class RegisterUser extends AppCompatActivity {
         name = (EditText)findViewById(R.id.name);
         email = (EditText)findViewById(R.id.email);
         password = (EditText)findViewById(R.id.editPassword);
+        cPassword = (EditText)findViewById(R.id.cPassword);
 
         mAuth = FirebaseAuth.getInstance();
 
         reggiNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendData();
+                uemail = email.getText().toString().trim();
+                uName = name.getText().toString().trim();
+                uPassword = password.getText().toString().trim();
+                cPassWord = cPassword.getText().toString().trim();
+                if(uemail.matches("") || uName.matches("") || uPassword.matches("") || cPassWord.matches("")){
+
+                    showAlert("Incomplete Form");
+
+                    if(uemail.matches(""))
+                        email.setError("Incomplete");
+                    if(uName.matches(""))
+                        name.setError("Incomplete");
+
+                    if(uPassword.matches(""))
+                        password.setError("Incomplete");
+
+                    if(cPassWord.matches(""))
+                        cPassword.setError("Incomplete");
+
+                }else {
+
+                    if(!uPassword.matches(cPassWord)){
+                        showAlert("password des not match");
+                        cPassword.setError("Password does not match");
+                    }else {
+                        sendData();
+                    }
+
+//                    sendData();
+                }
+
             }
         });
 
@@ -72,9 +105,9 @@ public class RegisterUser extends AppCompatActivity {
     public void sendData(){
         //TODO checks for the input
 
-        uemail = email.getText().toString();
-        uName = name.getText().toString();
-        uPassword = password.getText().toString();
+//        uemail = email.getText().toString().trim();
+//        uName = name.getText().toString().trim();
+//        uPassword = password.getText().toString().trim();
 
         lon = getRandomNumberLon();
         lat = getRandomNumberLat();
@@ -90,19 +123,35 @@ public class RegisterUser extends AppCompatActivity {
                             DatabaseReference ref = database.getReference("Users");
                             FirebaseUser user = mAuth.getCurrentUser();
                             ref.child(user.getUid()).setValue(new SquadUser(uName,uemail,uPassword, lon, lat ));
-                            Intent intent = new Intent(RegisterUser.this, MainActivity.class);
+                            Intent intent = new Intent(RegisterUser.this, GridMenu.class);
                             startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(RegisterUser.this, "Create user failed.",
-                                    Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(RegisterUser.this, "Create user failed.",
+//////                                    Toast.LENGTH_SHORT).show();
+                            showAlert(task.getException().toString());
 
 
                         }
                     }
                 });
 
+    }
+
+
+    public void showAlert(String errMessage){
+        AlertDialog.Builder formNotComplete = new AlertDialog.Builder(RegisterUser.this);
+        formNotComplete.setMessage(errMessage).setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert = formNotComplete.create();
+        alert.setTitle("Alert!");
+        alert.show();
     }
 }
