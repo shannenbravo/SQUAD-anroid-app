@@ -119,10 +119,17 @@ public class RegisterUser extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference ref = database.getReference("Users");
+
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference uRef = database.getReference("Users");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            ref.child(user.getUid()).setValue(new SquadUser(uName,uemail,uPassword, lon, lat ));
+                            uRef.child(user.getUid()).setValue(new SquadUser(uName,uemail,uPassword, lon, lat ));
+
+                            FirebaseDatabase database1 = FirebaseDatabase.getInstance();
+                            String emailTrim = uemail.replaceAll(".com","");
+                            DatabaseReference eRef = database1.getReference("EmailToUID");
+                            eRef.child(emailTrim).setValue(user.getUid());
+
                             Intent intent = new Intent(RegisterUser.this, GridMenu.class);
                             startActivity(intent);
 

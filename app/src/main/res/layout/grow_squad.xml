@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context="project1.mobile.cs.fsu.edu.squad.MapsActivity">
+
+    <EditText
+        android:id="@+id/findEmail"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:hint="Find by email"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Add Friend"
+        android:background="@color/colorMintGreen"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:id="@+id/add"/>
+
+</LinearLayout>
