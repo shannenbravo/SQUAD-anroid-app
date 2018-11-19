@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -25,6 +27,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 //import android.location.LocationListener;
 
@@ -36,7 +41,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationRequest locationRequest;
     private Location lastLoaction;
     private Marker currentUserLoacationMarker;
+    private double userLonge;
+    private double userLat;
     private static final int Request_User_Location_code = 99;
+    private Button checkIn;
+    private String theUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        checkIn = (Button)findViewById(R.id.checkIn);
+        checkIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser thisUser = mAuth.getCurrentUser();
+
+                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                db.getReference("Users/" + thisUser.getUid() + "/uLat").setValue(userLat);
+                db.getReference("Users/" + thisUser.getUid() + "/uLonge").setValue(userLonge);
+
+
+            }
+        });
 
     }
 
@@ -138,6 +162,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        userLat = location.getLatitude();
+        userLonge = location.getLongitude();
         MarkerOptions markerOptions= new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("Shannen");

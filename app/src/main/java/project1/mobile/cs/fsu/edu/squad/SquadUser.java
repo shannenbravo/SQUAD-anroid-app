@@ -5,10 +5,10 @@ public class SquadUser {
     private String name;
     private String email;
     private String uPassword;
-    private float uLat;
-    private float uLonge;
+    private double uLat;
+    private double uLonge;
 
-    SquadUser(String n, String em, String p, float lon, float lat) {
+    SquadUser(String n, String em, String p, double lon, double lat) {
         setName(n);
         setEmail(em);
         setuPassword(p);
@@ -16,6 +16,8 @@ public class SquadUser {
         uLonge = lat;
 
     }
+
+    SquadUser(){}
 
 
     public void setName(String s) {
@@ -69,11 +71,11 @@ public class SquadUser {
         this.uLonge = uLonge;
     }
 
-    public float getuLat() {
+    public double getuLat() {
         return uLat;
     }
 
-    public float getuLonge() {
+    public double getuLonge() {
         return uLonge;
     }
 }
