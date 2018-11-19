@@ -17,6 +17,7 @@ public class GridMenu extends AppCompatActivity {
     private LinearLayout myLocation;
     private LinearLayout otherLoacation;
     private LinearLayout growSquad;
+    private LinearLayout showSquad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class GridMenu extends AppCompatActivity {
         myLocation = (LinearLayout) findViewById(R.id.myLocation);
         otherLoacation = (LinearLayout)findViewById(R.id.findFriends);
         growSquad = (LinearLayout) findViewById(R.id.growSquad);
+        showSquad = (LinearLayout) findViewById(R.id.showSquad);
 
         //able to access current user's information
         /*FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -43,6 +45,14 @@ public class GridMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent = new Intent(GridMenu.this,growSquad.class);
+                startActivity(intent);
+            }
+        });
+
+        showSquad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(GridMenu.this,showSquad.class);
                 startActivity(intent);
             }
         });

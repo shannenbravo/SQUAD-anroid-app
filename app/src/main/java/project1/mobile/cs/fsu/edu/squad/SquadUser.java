@@ -63,11 +63,11 @@ public class SquadUser {
         return uPassword;
     }
 
-    public void setuLat(float uLat) {
+    public void setuLat(double uLat) {
         this.uLat = uLat;
     }
 
-    public void setuLonge(float uLonge) {
+    public void setuLonge(double uLonge) {
         this.uLonge = uLonge;
     }
 

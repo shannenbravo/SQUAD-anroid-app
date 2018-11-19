@@ -46,6 +46,7 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".RegisterUser" />
         <activity android:name=".growSquad" />
+        <activity android:name=".showSquad" />
         <activity
             android:name=".MapsActivity2"
             android:label="@string/title_activity_maps2"></activity>
